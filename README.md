@@ -82,7 +82,7 @@ https://github.com/tradingeconomics/tradingeconomics-js/tree/main/Examples
 
 ## Docker
 
-Please set apikey with your credetials
+Please set apikey with your credentials
 
 ```javascript
 docker run --rm -it --init --name te-nodejs -e apikey='guest:guest' tradingeconomics/nodejs:latest sh
