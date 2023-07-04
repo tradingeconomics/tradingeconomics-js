@@ -9,7 +9,7 @@ const getCalendarCountry = require('./auth.js').getCalendarCountry;
 const getCalendarIndicator = require('./auth.js').getCalendarIndicator;
 const getCalendarId = require('./auth.js').getCalendarId;
 
-//function to get the chunk of data on response an put it on the buffer
+//function to get a chunk of data from response and put it into a buffer
 callback = function(response) {
     buffer = '';
     response.on('data', function (chunk) {

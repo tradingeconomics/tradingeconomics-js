@@ -1,15 +1,14 @@
+## tradingeconomics
+[![npm version](https://img.shields.io/npm/v/tradingeconomics.svg)](https://www.npmjs.com/package/tradingeconomics)
+#
+
 ## Description
 The Trading Economics NPM package provides direct access to our data. It allows you to request millions of rows of economic historical data, to query our real-time economic calendar and to subscribe to updates. 
 
 #
 
-## Documentation
-https://docs.tradingeconomics.com/?javascript#introduction
-
-#
 
 ## QuickStart
-First install the package:
 
 ```javascript
 npm install tradingeconomics
@@ -42,7 +41,7 @@ apikey="key:secret" node app.js
 ```
  - ### Request data
     - Use the functions to get data from Markets, Indicators, Economic Calendar, Forecasts, World Bank, Comtrade, Federal Reserve, and even the latest news.
-    - Know more about other methods on our [docs](https://docs.tradingeconomics.com/?javascript#introduction)
+    - Know more about other methods on our [docs](https://docs.tradingeconomics.com)
 ```javascript
 te.getCalendar().then((data) => console.log(data));
 ```
@@ -51,4 +50,15 @@ te.getCalendar().then((data) => console.log(data));
 
 ## Examples
 
-https://github.com/tradingeconomics/tradingeconomics/tree/master/nodejs/Examples
+https://github.com/tradingeconomics/tradingeconomics-js/tree/main/Examples
+
+#
+
+## Documentation
+https://docs.tradingeconomics.com
+
+#
+
+## Learn More
+
+https://tradingeconomics.com/analytics/api.aspx

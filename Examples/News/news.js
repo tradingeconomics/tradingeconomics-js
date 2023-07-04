@@ -1,7 +1,6 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#news
-
-// Pacakge Installation: npm install tradingeconomics
+// http://docs.tradingeconomics.com
+// Package Installation: npm install tradingeconomics
 const te = require("tradingeconomics");
 
 const NewsExample = async () => {

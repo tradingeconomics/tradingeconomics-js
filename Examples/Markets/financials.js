@@ -1,7 +1,7 @@
 // DOCUMENTATION:
 // http://docs.tradingeconomics.com/?javascript#financials
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const FinancialsExample = async () => {
@@ -26,25 +26,3 @@ const FinancialsExample = async () => {
 };
 
 FinancialsExample();
-
-
-//===============================================================================================================
-//Example using our methods: Get a forecast for the stock with the highest Earnings Per Share (max 5 symbols)
-/*
-async function getForecastForHighestEPS(...symbols) {
-  try {
-    //Get financials data for the selected symbols
-    const financialData = await te.getFinancialsData((symbol = symbols))
-    //Filter for EPS
-    const eps = financialData.filter((item) => item.financialSymbol.toLowerCase() == 'eps')
-    //Find stock with the highest EPS
-    const highestEPS = eps.reduce((stock1, stock2) =>stock1.last > stock2.last ? stock1 : stock2)
-    console.log('Stock with the highest EPS:', '\n', highestEPS)
-    //Get a forecast for this stock
-    const forecast = await te.getMarketsForecast((symbol = highestEPS.stock))
-    console.log('Forecast for stock with the highest EPS:', '\n', forecast)
-  } catch (error) {
-    console.log(error)
-  }
-}
-getForecastForHighestEPS('aapl:us', 'fb:us', 'tsla:us', 'orcl:us', 'msft:us')*/

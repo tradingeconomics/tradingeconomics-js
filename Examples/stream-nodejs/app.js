@@ -1,5 +1,5 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#streaming
+// http://docs.tradingeconomics.com
 
 
 let myKey = require('./userKey')

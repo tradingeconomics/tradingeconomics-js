@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#comtrade
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const ComtradeExample = async () => {
@@ -39,40 +39,3 @@ const ComtradeExample = async () => {
 };
 
 ComtradeExample();
-
-//===============================================================================================================
-//Example that uses some of the methods to get top export markets and import sources
-/*
-async function getTopTradingPartners(targetCountry) {
-  try {
-    //Get exports
-    const exports = await te.getComtradeTotalByType(
-      (country = targetCountry),
-      (type = 'export')
-    )
-    //Get imports
-    const imports = await te.getComtradeTotalByType(
-      (country = targetCountry),
-      (type = 'import')
-    )
-    const exportCountries = exports.filter(
-      (entry) => entry.country2.toLowerCase() != 'world'
-    )
-    const importCountries = imports.filter(
-      (entry) => entry.country2.toLowerCase() != 'world'
-    )
-    //Top 5 export markets
-    const top5Export = exportCountries
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 5)
-    //Top 5 import sources
-    const top5Import = importCountries
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 5)
-    console.log('Top 5 export markets:', '\n', top5Export)
-    console.log('Top 5 import sources:', '\n', top5Import)
-  } catch (error) {
-    console.log(error)
-  }
-}
-getTopTradingPartners('peru')*/

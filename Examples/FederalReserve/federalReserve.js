@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#federal-reserve
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const FEDExample = async () => {

@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#world-bank
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require("tradingeconomics");
 
 const WBExample = async () => {
@@ -29,23 +29,3 @@ const WBExample = async () => {
 };
 
 WBExample();
-
-//===============================================================================================================
-//Example using our methods to have historical for a country and series
-
-/*
-async function getHistoricalDataByIndicator(targetCountry, indicator) {
-  try {
-    const data = await te.getWorldBank((country = targetCountry));
-    //Get the series code for the indicator
-    const seriesCode = data.find((entry) => entry.description.toLowerCase() == indicator.toLowerCase()).symbol;
-    console.log("The series code: ", seriesCode);
-    //Now, use the series code to get historical data
-    const historicalData = await te.getWorldBankHistorical((series_code = seriesCode));
-    console.log(`Historical data for ${indicator} for ${targetCountry}:`,"\n",historicalData);
-  } catch (error) {
-    console.log(error);
-  }
-}
-getHistoricalDataByIndicator("Chile", "Cereal yield (kg per hectare)");*/
-

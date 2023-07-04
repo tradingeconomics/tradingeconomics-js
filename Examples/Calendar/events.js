@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#events
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Pacckge Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const CalendarExample = async () => {

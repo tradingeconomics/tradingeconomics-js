@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#eurostat
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const EurostatExample = async () => {
@@ -34,27 +34,3 @@ const EurostatExample = async () => {
 };
 
 EurostatExample();
-
-
-//Example using our methods to compare a country with the EU average
-/*
-async function compareWithEUAverage(targetCountry, targetCategory) {
-  try {
-    const data = await te.getEurostatData((category = targetCategory))
-    const targetCountryData = data.find(
-      (entry) => entry.Country.toLowerCase() == targetCountry.toLowerCase()
-    )
-    const euAverageData = data.find(
-      (entry) => entry.Country.toLowerCase() == 'european union'
-    )
-    console.log(`The EU average for ${targetCategory}:`, '\n', euAverageData)
-    console.log(
-      `${targetCategory} for ${targetCountry}:`,
-      '\n',
-      targetCountryData
-    )
-  } catch (error) {
-    console.log(error)
-  }
-}
-compareWithEUAverage('Slovakia', 'Real GDP per capita')*/

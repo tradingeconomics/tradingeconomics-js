@@ -1,7 +1,7 @@
 // DOCUMENTATION:
 // http://docs.tradingeconomics.com/?javascript#earnings
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require("tradingeconomics");
 
 const EarningsExample = async () => {

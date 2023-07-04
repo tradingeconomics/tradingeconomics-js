@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#marketForecast
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const MarketsForecExample = async () => {
@@ -22,25 +22,3 @@ const MarketsForecExample = async () => {
 };
 
 MarketsForecExample();
-
-
-
-//===============================================================================================================
-//Example using one of our methods to filter bt category and country. Get a forecast for the government bonds by specific country
-/*
-async function getBondForecastByCountry(targetCountry) {
-  try {
-    const bondForecast = await te.getMarketsForecast((category = 'bond'))
-    const bondsTargetCountry = bondForecast.filter(
-      (country) => country.Country.toLowerCase() == targetCountry.toLowerCase()
-    )
-    console.log(
-      "Forecast for the selected country's government bonds:",
-      '\n',
-      bondsTargetCountry
-    )
-  } catch (error) {
-    console.log(error)
-  }
-}
-getBondForecastByCountry('united states')*/

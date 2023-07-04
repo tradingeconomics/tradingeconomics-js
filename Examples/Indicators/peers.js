@@ -1,4 +1,4 @@
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require("tradingeconomics");
 
 const IndicatorsExample = async () => {

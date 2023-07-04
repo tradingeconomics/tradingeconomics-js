@@ -1,7 +1,7 @@
 // DOCUMENTATION:
-// http://docs.tradingeconomics.com/?javascript#indicators
+// http://docs.tradingeconomics.com
 
-// Pacakge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const IndicatorsExample = async () => {
@@ -33,34 +33,3 @@ const IndicatorsExample = async () => {
 };
 
 IndicatorsExample();
-
-
-
-
-//===============================================================================================================
-//Example combining methods to get data by country and group
-/*
-async function getCountryGroupData(targetCountry, targetIndicator) {
-  try {
-    const allIndicators = await te.getIndicatorData()
-    //We want to find out which category group 'targetIndicator' belongs to
-    const categoryGroup = allIndicators.find(
-      (indicator) =>
-        indicator.Category.toLowerCase() == targetIndicator.toLowerCase()
-    ).CategoryGroup
-    console.log('Category group: ' + categoryGroup)
-    //Now we can get more information about other indicators from this group
-    const indicatorsByGroup = await te.getIndicatorData(
-      (country = targetCountry),
-      (group = categoryGroup)
-    )
-    console.log(
-      'List of all indicators from the group:',
-      '\n',
-      indicatorsByGroup
-    )
-  } catch (error) {
-    console.log(error)
-  }
-}
-getCountryGroupData('Belgium', 'Credit Rating')*/
