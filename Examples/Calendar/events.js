@@ -1,7 +1,7 @@
 // DOCUMENTATION:
 // http://docs.tradingeconomics.com
 
-// Pacckge Installation: npm install tradingeconomics
+// Package Installation: npm install tradingeconomics
 const te = require('tradingeconomics')
 
 const CalendarExample = async () => {
