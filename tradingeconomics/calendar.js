@@ -14,6 +14,7 @@ global.importance = null;
 global.group = null;
 global.values = null;
 
+
 /***************************************************************************************************************  
     ### Without parameters a list of all events will be provided
     ##### parameters:  
