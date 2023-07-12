@@ -12,17 +12,18 @@ global.end_date = null;
 global.utc = null;
 global.importance = null;
 global.group = null;
+global.values = null;
 
 /***************************************************************************************************************  
     ### Without parameters a list of all events will be provided
     ##### parameters:  
-        String or list: country, indicator, ticker, id, importance  
+        String or list: country, indicator, ticker, id, importance, values
         Date: start_date, end_date  
         UTC: choose utc time zone  
 
     ##### example:
         getCalendar();
-        getCalendar(importance='1');
+        getCalendar(importance='1', values=true);
         getCalendar(utc='-60');
         getCalendar(start_date = '2016-02-01', end_date = '2016-02-10');
         getCalendar(start_date = '2016-02-01', end_date = '2016-02-10', utc='180');
@@ -32,7 +33,7 @@ global.group = null;
         getCalendar(indicator = 'interest rate' ); 
         getCalendar(indicator ='inflation rate', start_date = '2016-02-01', end_date = '2016-02-10');       
         getCalendar(ticker = ['SPAINFACORD', 'BAHRAININFNRATE']); 
-        getCalendar(ticker =['SPAINFACORD', 'BAHRAININFNRATE'], start_date = '2018-01-01', end_date = '2018-03-01'); 
+        getCalendar(ticker =['SPAINFACORD', 'BAHRAININFNRATE'], start_date = '2018-01-01', end_date = '2018-03-01', , values=false); 
         getCalendar(id =['174108','160025','160030']);     
 
 ****************************************************************************************************************/
@@ -73,6 +74,13 @@ function getCalendar(){
             Data = `${url_base}${url}?c=${apikey.replace(' ','%20')}&importance=${importance}`;
         }
         else Data = `${url_base}${url}?c=${apikey.replace(' ','%20')}`;
+
+        if (values == true){
+            Data += `&values=true`
+        }
+        else if (values == false){
+            Data += `&values=false`
+        }
 
         return func.makeTheRequest(Data)
     } catch (error) {
