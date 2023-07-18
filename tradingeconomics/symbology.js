@@ -44,7 +44,7 @@ function getSymbology(){
             url = '/markets/symbology/isin/' + isin.toLowerCase();    
         } 
         if (country !== null){     
-            url = '/markets/symbology/country/' + country.toLowerCase();    
+            url = '/markets/symbology/country/' + country.toLowerCase();     
         } 
     
         Data = url_base + url + '?c='+ apikey.replace (' ','%20');
