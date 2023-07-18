@@ -9,6 +9,7 @@ const fetch = require('node-fetch');
 global.symbol = null;
 global.ticker = null;
 global.isin = null;
+global.country = null;
 
 
 //This function builds the path to get the API request:
@@ -33,7 +34,7 @@ function getSymbology(){
           return null
         }else{
     
-          if (symbol !== null){    
+        if (symbol !== null){    
             url = '/markets/symbology/symbol/' + symbol.toLowerCase();    
         }
         if (ticker !== null){      
@@ -41,7 +42,10 @@ function getSymbology(){
         }
         if (isin !== null){     
             url = '/markets/symbology/isin/' + isin.toLowerCase();    
-        }  
+        } 
+        if (country !== null){     
+            url = '/markets/symbology/country/' + country.toLowerCase();    
+        } 
     
         Data = url_base + url + '?c='+ apikey.replace (' ','%20');
         return func.makeTheRequest(Data)
