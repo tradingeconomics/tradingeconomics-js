@@ -1,5 +1,6 @@
 'use strict'
 
+const { globalAgent } = require('http');
 const auth = require('./auth.js');
 const func = require('./functions.js');
 const fetch = require('node-fetch');
@@ -9,6 +10,8 @@ global.category = null;
 global.country = null;
 global.country1 = null;
 global.symbol = null;
+
+global.start_date = null;
 
 //This function builds the path to get the API request:
 /***********************************************************************************  
@@ -65,7 +68,37 @@ function getComtrade(){
    
 }
 
+//This function builds the path to get the API request:
+/***********************************************************************************  
+   parameters:
+    String or list: country, country1, symbol
+    String: category(can be - 'categories' or 'countries' for a list of data)
+
+   example:
+    getCmtLastUpdates();
+    getCmtLastUpdates(start_date='2022-01-01');
+    getCmtLastUpdates(country = 'china', start_date='2022-01-01' );             
+
+***********************************************************************************/
+function getCmtLastUpdates(){
+    try{
+        let url = '/comtrade/updates/country';
+        let Data = '';
+        country ? url += `/${country}` : url += `/all`
+        Data = url_base + url + '?c=' + apikey.replace (' ','%20');
+
+        start_date ? Data += `&from=${start_date}` : Data += ''
+        // console.log(Data)
+        return func.makeTheRequest(Data)
+    }
+    catch(error){
+        throw error
+    }
+
+}
+
 module.exports.getComtrade = getComtrade;
+module.exports.getCmtLastUpdates = getCmtLastUpdates;
 
 
 
