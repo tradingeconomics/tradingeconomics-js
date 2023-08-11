@@ -92,7 +92,7 @@ function getCmtLastUpdates(){
         return func.makeTheRequest(Data)
     }
     catch(error){
-        throw error 
+        throw error  
     }
 
 }
