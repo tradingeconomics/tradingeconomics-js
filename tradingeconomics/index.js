@@ -30,7 +30,8 @@ module.exports = Object.assign(
     require('./financialsHistorical.js'),
     require('./getPeers.js'),
     require('./markertStockDescriptions.js'),
-    require('./symbology.js')
+    require('./symbology.js'),
+    require('./dividends.js')
 );
 
 
