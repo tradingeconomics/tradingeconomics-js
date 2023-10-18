@@ -58,70 +58,70 @@ const https = require('https');
 //     }
    
 // }
-class DateError extends Error {
-    constructor(message) {
-      super(message);
-      this.name = 'DateError';
-    }
-  }
+// class DateError extends Error {
+//     constructor(message) {
+//       super(message);
+//       this.name = 'DateError';
+//     }
+//   }
 
-function isValid(date_text) {
-    try {
-      try {
-        new Date(date_text + 'T00:00:00Z');
-      } catch {
-        new Date(date_text);
-      }
-    } catch {
-      throw new DateError("Incorrect data format, should be YYYY-MM-DD");
-    }
-  }
+// function isValid(date_text) {
+//     try {
+//       try {
+//         new Date(date_text + 'T00:00:00Z');
+//       } catch {
+//         new Date(date_text);
+//       }
+//     } catch {
+//       throw new DateError("Incorrect data format, should be YYYY-MM-DD");
+//     }
+//   }
   
 
-function checkEarningsDates(baseLink, start_date = null, end_date = null) {
-    if (start_date !== null && end_date === null) {
-      try {
-        if (isValid(start_date)) {
-          throw new DateError('Incorrect initDate format, should be YYYY-MM-DD.');
-        }
-        // if (start_date > dayjs().format('YYYY-MM-DD')) {
-        //   throw new DateError('Initial date out of range.');
-        // }
-        baseLink += '&d1=' + encodeURIComponent(start_date);
-      } catch (err) {
-        throw new DateError('Incorrect initDate format, should be YYYY-MM-DD.');
-      }
-    }
+// function checkEarningsDates(baseLink, start_date = null, end_date = null) {
+//     if (start_date !== null && end_date === null) {
+//       try {
+//         if (isValid(start_date)) {
+//           throw new DateError('Incorrect initDate format, should be YYYY-MM-DD.');
+//         }
+//         // if (start_date > dayjs().format('YYYY-MM-DD')) {
+//         //   throw new DateError('Initial date out of range.');
+//         // }
+//         baseLink += '&d1=' + encodeURIComponent(start_date);
+//       } catch (err) {
+//         throw new DateError('Incorrect initDate format, should be YYYY-MM-DD.');
+//       }
+//     }
   
-    if (start_date !== null && end_date !== null) {
-      try {
-        if (isValid(start_date)) {
-          throw new DateError('Incorrect initDate format, should be YYYY-MM-DD.');
-        }
-        if (isValid(end_date)) {
-          throw new DateError('Incorrect endDate format, should be YYYY-MM-DD or MM-DD-YYYY.');
-        }
-        const startDateObj = new Date(start_date)// isValid(start_date);
-        const endDateObj = new Date(end_date);
-        if (startDateObj > endDateObj) {
-            throw new DateError('Start date must be earlier than end date.');
-        }
+//     if (start_date !== null && end_date !== null) {
+//       try {
+//         if (isValid(start_date)) {
+//           throw new DateError('Incorrect initDate format, should be YYYY-MM-DD.');
+//         }
+//         if (isValid(end_date)) {
+//           throw new DateError('Incorrect endDate format, should be YYYY-MM-DD or MM-DD-YYYY.');
+//         }
+//         const startDateObj = new Date(start_date)// isValid(start_date);
+//         const endDateObj = new Date(end_date);
+//         if (startDateObj > endDateObj) {
+//             throw new DateError('Start date must be earlier than end date.');
+//         }
 
-        // if (dayjs(end_date).diff(start_date, 'days') < 0) {
-        //   throw new DateError('Invalid time period.');
-        // }
-        baseLink += '&d1=' + encodeURIComponent(start_date) + '&d2=' + encodeURIComponent(end_date);
-      } catch (err) {
-        throw new DateError(err.message);
-      }
-    }
+//         // if (dayjs(end_date).diff(start_date, 'days') < 0) {
+//         //   throw new DateError('Invalid time period.');
+//         // }
+//         baseLink += '&d1=' + encodeURIComponent(start_date) + '&d2=' + encodeURIComponent(end_date);
+//       } catch (err) {
+//         throw new DateError(err.message);
+//       }
+//     }
   
-    if (start_date === null && end_date !== null) {
-      throw new DateError('initDate value is missing');
-    }
+//     if (start_date === null && end_date !== null) {
+//       throw new DateError('initDate value is missing');
+//     }
     
-    return baseLink;
-  }
+//     return baseLink;
+//   }
 
 function makeRequest(url) {
     return new Promise((resolve, reject) => {
@@ -238,7 +238,7 @@ function getEarnings(){
         
         try {
             linkAPI += '?c=' + apikey;
-            linkAPI = checkEarningsDates(linkAPI, start_date, end_date); 
+            linkAPI = func.checkDatesValidity(linkAPI, start_date, end_date); 
           } catch (err) {
             if (err instanceof TypeError) {
               throw new LoginError('You need to do login before making any request');
