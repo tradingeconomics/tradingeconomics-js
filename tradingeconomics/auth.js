@@ -1,5 +1,5 @@
 "use strict";
-
+ 
 global.url_base = "https://api.tradingeconomics.com";
 global.apikey;
 
