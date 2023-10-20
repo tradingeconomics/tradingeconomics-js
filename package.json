@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.5.1",
     "bl": "^3.0.0",
     "deasync": "^0.1.15",
     "http": "0.0.0",
@@ -19,5 +20,8 @@
     "request-promise": "^4.2.4",
     "superagent": "^5.1.0",
     "tradingeconomics": "file:tradingeconomics"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
