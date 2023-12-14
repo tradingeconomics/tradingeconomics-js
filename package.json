@@ -1,8 +1,7 @@
 {
   "name": "nodejs",
-  "version": "2.2.9",
-  "description": "",
-  "main": "index.js",
+  "description": "Javascript library for Trading Economics API",
+  "main": "./tradingeconomics/index.js",
   "scripts": {
     "test": "jest"
   },
@@ -23,5 +22,14 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tradingeconomics/tradingeconomics-js.git",
+    "directory": "tradingeconomics"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "directory": "./tradingeconomics"
   }
 }
