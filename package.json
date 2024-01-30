@@ -31,5 +31,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "directory": "./tradingeconomics"
-  }
+  },
+  "version": "2.4.0"
 }
