@@ -28,8 +28,8 @@ global.values = null;
         getCalendar(utc='-60');
         getCalendar(start_date = '2016-02-01', end_date = '2016-02-10');
         getCalendar(start_date = '2016-02-01', end_date = '2016-02-10', utc='180');
-        getCalendar(country = ['china', 'portugal']);
-        getCalendar(country = ['china', 'portugal'], utc='120');
+        getCalendar(country = ['united states', 'china']);
+        getCalendar(country = ['united states', 'china'], utc='120');
         getCalendar(country ='china', start_date = '2016-02-01', end_date = '2016-02-10');
         getCalendar(indicator = 'interest rate' ); 
         getCalendar(indicator ='inflation rate', start_date = '2016-02-01', end_date = '2016-02-10');       
@@ -91,14 +91,14 @@ function getCalendar(){
 
 
 /***************************************************************************************************************  
-    ### Get calendar events by group and country. Group parameter is mandatory.
+    ### Get calendar events by group and country. Group parameter is mandatory. Function returns a rejected promise if group is not a string.
     ##### parameters:  
         String or list: group, country
         Date: start_date, end_date   
 
     ##### example:
-        getCalendarEventsByGroup(group='interest rate');
-        getCalendarEventsByGroup(group='inflation', country='china', end_date='2023-12-01', start_date='2023-01-01')
+        getCalendarEventsByGroup(group='bonds');
+        getCalendarEventsByGroup(group='bonds', country='united states', end_date='2023-12-01', start_date='2023-01-01')
 
 ****************************************************************************************************************/
 function getCalendarEventsByGroup(){
@@ -124,5 +124,35 @@ function getCalendarEventsByGroup(){
     }
 }
 
+
+/***************************************************************************************************************  
+    ### Get calendar events. Country parameter is optional.
+    ##### parameters:  
+        String or list: country
+
+
+    ##### example:
+        getCalendarEvents();
+        getCalendarEvents(country='united states')
+        getCalendarEvents(country=['united states', 'portugal'])
+
+****************************************************************************************************************/
+function getCalendarEvents(){
+
+    try {
+        var Data = '';
+        var url = '/calendar/events';
+    
+        if (country != null) url += `/country/${country}`;  
+
+        Data = url_base + url + '?c=' + apikey.replace(' ','%20');
+        
+        return func.makeTheRequest(Data)
+    } catch (error) {
+       throw error 
+    }
+}
+
 module.exports.getCalendar = getCalendar;
 module.exports.getCalendarEventsByGroup = getCalendarEventsByGroup;
+module.exports.getCalendarEvents = getCalendarEvents;
