@@ -21,7 +21,6 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm ci
       - name : Run tests
-        working-directory: '**/'
         run: npm test
       - run: npm publish
         env:
