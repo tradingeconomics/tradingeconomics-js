@@ -30,6 +30,9 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
-    "directory": "./tradingeconomics"
+    "directory": "./tradingeconomics",
+    "scripts": {
+      "test": "jest"
+    }
   }
 }
