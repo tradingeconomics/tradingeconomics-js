@@ -1,5 +1,5 @@
 ## tradingeconomics
-[![npm version](https://img.shields.io/npm/v/tradingeconomics.svg)](https://www.npmjs.com/package/tradingeconomics)
+[![npm version](https://img.shields.io/npm/v/tradingeconomics.svg)](https://www.npmjs.com/package/tradingeconomics) ![Unit Tests](https://github.com/tradingeconomics/tradingeconomics-js/actions/workflows/tests.yml/badge.svg) 
 #
 
 ## Description

@@ -1,3 +1,5 @@
+![Unit Tests](https://github.com/tradingeconomics/tradingeconomics-js/actions/workflows/tests.yml/badge.svg) 
+
 # How to run
 
 The basic tests have the following pattern: 
