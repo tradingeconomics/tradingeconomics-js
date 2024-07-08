@@ -32,9 +32,8 @@ global.cross = null;
     getMarketSnap(peers_symbol ='aapl:us' );        
     getMarketSnap(components_symbol ='psi20:ind');        
     getMarketSnap(country ='japan');
-    getMarketSnap(cross ='eur');          
-    getMarketSnap(country ='united states');        
-    getMarketSnap(search_term ='japan', category = 'index, markets');        
+    getMarketSnap(country =['japan', 'portugal]);      
+    getMarketSnap(cross ='eur');           
     getMarketSnap(search_term ='japan', category = 'index, markets');        
 
 *******************************************************************************************************/
@@ -73,7 +72,7 @@ function getMarketSnap(){
             url = '/markets/components/' + components_symbol;
         }
         if(country != null){
-            url = '/markets/country/' + country;
+            url = '/markets/stocks/country/' + country;
         }
     
         if(search_term != null){
@@ -102,6 +101,15 @@ function getMarketSnap(){
    
 }
 
+//This function builds the path to get the API request:
+/******************************************************************************************************
+   parameters:
+    country
+
+   example:
+    getMarketsByCountry(country ='nigeria');
+*******************************************************************************************************/
+
 function getMarketsByCountry(){
 
     try {
@@ -109,9 +117,9 @@ function getMarketsByCountry(){
         var url = '';
 
         if(country != null){
-            url = '/markets/stocks/country/' + country;
+            url = '/markets/country/' + country;
         } else {
-            throw new ParameterError('Missing country parameters.');
+            throw new Error('Missing country parameters.');
         }
 
         Data = url_base + url + '?c=' + apikey.replace (' ','%20');

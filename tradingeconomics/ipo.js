@@ -25,7 +25,7 @@ function getIpo(){
         let linkAPI = 'https://api.tradingeconomics.com/ipo/';
 
         if (ticker && country) {
-            throw new ParameterError('You cannot use both ticker and country parameters together');
+            throw new Error('You cannot use both ticker and country parameters together');
         }
 
         if (ticker) {
