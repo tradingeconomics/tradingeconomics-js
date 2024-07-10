@@ -81,13 +81,23 @@ function getMarketSnap(){
         if(category != null){
             url = '/markets/search/' + search_term + '?c=' + apikey + '&category=' + category ;
         }
+
+        if (url === '') throw new Error('Missing parameters.');
             
         if (url.includes(category || cross)){
             Data = url_base + url .replace (' ','%20');
         }else{
             Data = url_base + url + '?c=' + apikey.replace (' ','%20');
         }
-        return func.makeTheRequest(Data)
+
+        let result =  func.makeTheRequest(Data).then(data => { 
+            data.map(obj => {
+                delete Object.assign(obj, {['Unit']: obj['unit'] })['unit'];
+                delete Object.assign(obj, {['Frequency']: obj['frequency'] })['frequency'];
+            })
+            return data
+    })
+        return result
         // return fetch(Data)
         // .then(func.handleErrors)   
         // .then(function(response) {    
