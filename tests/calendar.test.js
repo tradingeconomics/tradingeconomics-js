@@ -21,9 +21,25 @@ describe('getCalendar', () => {
         expect(a).toEqual(c);
     }, 10000);
 
+    test('getCalendar with country, indicator,start_date and end_date argument', async () => {
+        let a = await te.getCalendar(country='united states', indicator=['Initial Jobless Claims'], start_date='2024-02-01', end_date='2024-03-30');
+        let b = await fetch('https://api.tradingeconomics.com/calendar/country/united states/indicator/Initial Jobless Claims/2024-02-01/2024-03-30?c=guest:guest&f=json');
+        let c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 10000);
+
+    test('getCalendar with country and indicator argument', async () => {
+        let a = await te.getCalendar(country=['united states'], indicator=['Initial Jobless Claims']);
+        let b = await fetch('https://api.tradingeconomics.com/calendar/country/united states/indicator/Initial Jobless Claims?c=guest:guest&f=json');
+        let c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 10000);
+
     test('getCalendar with indicator and start_date and end_date argument', async () => {
-        let a = await te.getCalendar(indicator='inflation rate', start_date='2016-02-01', end_date='2016-02-10');
-        let b = await fetch('https://api.tradingeconomics.com/calendar/indicator/inflation rate/2016-02-01/2016-02-10?c=guest:guest&f=json');
+        let a = await te.getCalendar(indicator='inflation rate', start_date='2016-03-01', end_date='2016-03-03');
+        let b = await fetch('https://api.tradingeconomics.com/calendar/indicator/inflation rate/2016-03-01/2016-03-03?c=guest:guest&f=json');
         let c = await b.json();
 
         expect(a).toEqual(c);
@@ -110,9 +126,36 @@ describe('getCalendar', () => {
         expect(a).toEqual(c);
     }, 10000);
 
+    test('get calendar event with country and event argument', async () => {
+        let a = await te.getCalendar(country=['United States'], event='GDP Growth Rate QoQ Final', start_date='2016-12-01', end_date='2024-02-25');
+
+        let b = await fetch('https://api.tradingeconomics.com/calendar/country/united states/event/GDP Growth Rate QoQ Final/2016-12-01/2024-02-25?c=guest:guest&f=json');
+        let c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 10000);
+
+    test('get calendar event with events argument', async () => {
+        let a = await te.getCalendar(country='United States', event='GDP Growth Rate QoQ Final', start_date='2016-12-01', end_date='2024-02-25');
+        let b = await fetch('https://api.tradingeconomics.com/calendar/country/united states/event/GDP Growth Rate QoQ Final/2016-12-01/2024-02-25?c=guest:guest&f=json');
+        let c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 10000);
+
+    test('get calendar event with multiple events argument', async () => {
+        let a = await te.getCalendar(country='United States', event=['GDP Growth Rate QoQ Final'], start_date='2016-12-01', end_date='2024-02-25');
+        let b = await fetch('https://api.tradingeconomics.com/calendar/country/united states/event/GDP Growth Rate QoQ Final/2016-12-01/2024-02-25?c=guest:guest&f=json');
+        let c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 10000);
+
     test('getCalendar with importance and values argument', async () => {
+        const te = require('tradingeconomics');
+        event = null;
         let a = await te.getCalendar(importance='1', values=true);
-        let b = await fetch('https://api.tradingeconomics.com/calendar/?c=guest:guest&f=json&importance=1&values=true');
+        let b = await fetch('https://api.tradingeconomics.com/calendar?c=guest:guest&f=json&importance=1&values=true');
         let c = await b.json();
 
         expect(a).toEqual(c);
