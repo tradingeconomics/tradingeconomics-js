@@ -11,6 +11,7 @@ global.country = null;
 global.indicator = null;
 global.ticker = null;
 global.group = null;
+global.calendar = null;
 
 
 //This function builds the path to get the API request:
@@ -26,6 +27,7 @@ global.group = null;
         my_data = getIndicatorData(indicator ='gdp');        
         my_data = getIndicatorData(ticker ='usurtot');
         my_data = getIndicatorData(country ='china', group = 'housing');             
+        my_data = getIndicatorData(calendar = 1);
 
 *******************************************************************/
 function getIndicatorData() {
@@ -54,6 +56,10 @@ function getIndicatorData() {
             Data = url_base + url .replace (' ','%20');
         }else{
             Data = url_base + url + '?c=' + apikey.replace (' ','%20');
+        }
+
+        if (calendar != null){
+            Data = Data + '&calendar=' + calendar;
         }
     
         return func.makeTheRequest(Data)
