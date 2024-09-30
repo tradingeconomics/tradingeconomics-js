@@ -13,6 +13,7 @@ global.utc = null;
 global.importance = null;
 global.group = null;
 global.values = null;
+global.event = null;
 
 
 /***************************************************************************************************************  
@@ -35,7 +36,10 @@ global.values = null;
         getCalendar(indicator ='inflation rate', start_date = '2016-02-01', end_date = '2016-02-10');       
         getCalendar(ticker = ['SPAINFACORD', 'BAHRAININFNRATE']); 
         getCalendar(ticker =['SPAINFACORD', 'BAHRAININFNRATE'], start_date = '2018-01-01', end_date = '2018-03-01', , values=false); 
-        getCalendar(id =['174108','160025','160030']);     
+        getCalendar(id =['174108','160025','160030']);
+        getCalendar(country='United States', event='Industrial Production MoM');
+        getCalendar(country=['United States'], event=['GDP Growth Rate QoQ Final']);
+
 
 ****************************************************************************************************************/
 
@@ -43,29 +47,28 @@ function getCalendar(){
 
     try {
         var Data = '';
-        var url = '';
+        var url = '/calendar';
+
+        if (ticker != null && id != null) return new Promise((resolve, reject) => reject(`Error! You cannot use ticker and id together`));
+        if (ticker != null && country != null) return new Promise((resolve, reject) => reject(`Error! You cannot use ticker and country together`));
+        if (id != null && country != null) return new Promise((resolve, reject) => reject(`Error! You cannot use id and country together`));
     
-        if (country != null) url = `/calendar/country/${country}`;
+        if (country != null) url += `/country/${country}`;
         
-        if (country != null && start_date != null && end_date != null) url = `/calendar/country/${country}/${start_date}/${end_date}`; 
-
-        if (indicator != null) url = `/calendar/indicator/${indicator.toLowerCase()}`;
-
-        if (indicator != null && start_date != null && end_date != null) url = `/calendar/indicator/${indicator}/${start_date}/${end_date}`;
-
-        if (start_date != null && end_date != null && country === null && indicator === null && ticker === null && id === null) url = `/calendar/country/All/${start_date}/${end_date}`;
+        if (indicator != null) (Array.isArray(indicator)) ? url += `/indicator/${indicator.map(i => i.toLowerCase())}` : url += `/indicator/${indicator}`;
         
-        if (country!= null && indicator != null) url = `/calendar/country/${country}/indicator/${indicator.toLowerCase()}`;    
-        
-        if (country != null && indicator != null && start_date != null && end_date != null) url = `/calendar/country/${country}/indicator/${indicator.toLowerCase()}/${start_date}/${end_date}`;    
-        
-        if (ticker != null) url = `/calendar/ticker/${ticker}`;
+        if (ticker != null) url += `/ticker/${ticker}`;
 
-        if (ticker != null && start_date != null && end_date != null) url = `/calendar/ticker/${ticker}/${start_date}/${end_date}`;    
+        if(id != null) url += `/calendarid/${id}`;
 
-        if(id != null) url = `/calendar/calendarid/${id}`;
+        if (event != null && country == null) throw new Error('Error! You must provide a country when using event parameter');
+        else if (event != null && country != null) url += `/event/${event}`;
 
-        if(country === null && indicator === null && start_date === null && end_date === null && ticker === null && id === null) url = '/calendar';
+        if (start_date != null && end_date != null) {
+            (country === null && indicator === null && ticker === null && id === null) ? url += `/country/All` : false;
+            url += `/${start_date}/${end_date}`;
+        }
+
       
         func.checkDates(start_date, end_date);
 

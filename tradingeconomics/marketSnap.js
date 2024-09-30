@@ -117,7 +117,7 @@ function getMarketSnap(){
     country
 
    example:
-    getMarketsByCountry(country ='nigeria');
+    getMarketsByCountry(country ='united states');
 *******************************************************************************************************/
 
 function getMarketsByCountry(){
