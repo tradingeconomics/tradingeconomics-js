@@ -59,7 +59,8 @@ function getIndicatorData() {
         }
 
         if (calendar != null){
-            Data = Data + '&calendar=' + calendar;
+            Data = url_base + '/indicators?c=' + apikey + '&calendar=' + calendar;
+            if (country != null) Data = Data + '&country=' + country;
         }
     
         return func.makeTheRequest(Data)

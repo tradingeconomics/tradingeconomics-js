@@ -46,7 +46,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
-        b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest&calendar=1');
+        b = await fetch('https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=guest:guest');
         c = await b.json();
 
         expect(a).toEqual(c);
