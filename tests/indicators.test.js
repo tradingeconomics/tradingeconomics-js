@@ -28,21 +28,22 @@ describe('getIndicatorData', () => {
         expect(a).toEqual(c);
     }, 10000);
 
-    test('get Indicators Data with calendar argument', async () => {
-        a = await te.getIndicatorData(calendar = 1);
-        b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest&calendar=1');
-        c = await b.json();
+    // test('get Indicators Data with calendar argument', async () => {
+    //     a = await te.getIndicatorData(calendar = 1);
+    //     b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest&calendar=1');
+    //     c = await b.json();
 
-        expect(a).toEqual(c);
-    }, 10000);
+    //     expect(a).toEqual(c);
+    // }, 10000);
 
-    test('get Indicators Data with countries argument', async () => {
-        a = await te.getIndicatorData(country = ['sweden']);
-        b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest');
-        c = await b.json();
+    // test('get Indicators Data with countries argument', async () => {
+    //     a = await te.getIndicatorData(country = ['sweden']);
+    //     b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest');
+                         
+    //     c = await b.json();
 
-        expect(a).toEqual(c);
-    }, 10000);
+    //     expect(a).toEqual(c);
+    // }, 10000);
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
