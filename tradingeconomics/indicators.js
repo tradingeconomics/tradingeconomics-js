@@ -12,6 +12,7 @@ global.indicator = null;
 global.ticker = null;
 global.group = null;
 global.calendar = null;
+global.start_date = null;
 
 
 //This function builds the path to get the API request:
@@ -62,6 +63,7 @@ function getIndicatorData() {
             Data = url_base + '/indicators?c=' + apikey + '&calendar=' + calendar;
             if (country != null) Data = Data + '&country=' + country;
         }
+        // console.log(Data)
     
         return func.makeTheRequest(Data)
     } catch (error) {
@@ -180,9 +182,42 @@ function getAllCountries() {
      
 }
 
+
+//This function builds the path to get the API request:
+/****************************************************************  
+   WITHOUT PARAMETERS A LIST OF ALL RECENT INDICATOR CHANGES WILL BE PROVIDED
+   parameters:
+    String or list: start_date
+
+   example:
+
+        my_data = getIndicatorChanges();
+        my_data = getIndicatorChanges(start_date = '2024-10-01']);
+
+*******************************************************************/
+function getIndicatorChanges() {
+    try {
+        
+        var url = 'https://api.tradingeconomics.com/changes';
+     
+        if (start_date != null){    
+            url += '/'+ start_date;    
+        }
+    
+        url = url + '?c=' + apikey.replace (' ','%20');
+        return func.makeTheRequest(url)
+    } catch (error) {
+        // console.log(error);
+        throw error
+    }
+    
+    
+     
+}
+
 // module.exports.getAllCountries = getAllCountries;
 // module.exports.getIndicatorData = getIndicatorData;
 // module.exports.getDiscontinuedIndicators = getDiscontinuedIndicators
 // module.exports.getHistoricalUpdates = getHistoricalUpdates
 
-module.exports = {getAllCountries,getIndicatorData,getDiscontinuedIndicators,getHistoricalUpdates}
+module.exports = {getAllCountries,getIndicatorData,getDiscontinuedIndicators,getHistoricalUpdates,getIndicatorChanges}
