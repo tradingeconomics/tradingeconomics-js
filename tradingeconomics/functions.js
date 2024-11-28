@@ -147,3 +147,4 @@ module.exports.checkDates = checkDates;
 module.exports.checkDatesValidity = checkDatesValidity;
 module.exports.checkTime = checkTime;
 module.exports.makeTheRequest = makeTheRequest;
+module.exports.isValid = isValid;
