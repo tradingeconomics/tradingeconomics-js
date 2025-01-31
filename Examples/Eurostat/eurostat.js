@@ -27,6 +27,9 @@ const EurostatExample = async () => {
     //Get Eurostat data by country and category
     const data7 = await te.getEurostatData(country = 'Latvia', category = 'Electricity prices: Medium size households')
 
+    // Get Eurostat data by symbol
+    const data8 = await te.getEurostatData(symbol = 'countries')
+
     console.log(data); //Place one of the variables to test
   } catch (e) {
     console.log(`Error: ${e}`);

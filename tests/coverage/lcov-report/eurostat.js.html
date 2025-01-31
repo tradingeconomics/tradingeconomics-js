@@ -275,7 +275,8 @@ global.lists = null;
     getEurostatData(category ='People at risk of income poverty after social transfers');        
     getEurostatData(category_group ='Poverty');        
     getEurostatData(country ='Denmark', category = 'People at risk of income poverty after social transfers');
-    getEurostatData(country ='Denmark', category_group = 'Poverty');             
+    getEurostatData(country ='Denmark', category_group = 'Poverty');      
+    getEurostatData(symbol ='51640');                 
 &nbsp;
 ****************************************************************************************************************/
 &nbsp;
@@ -307,8 +308,11 @@ function <span class="fstat-no" title="function not covered" >getEurostatData(</
         }  
 <span class="cstat-no" title="statement not covered" >        if (country != null &amp;&amp; category != null){    </span>
 <span class="cstat-no" title="statement not covered" >            url = '/eurostat/country/' + country + '?c=' + apikey + '&amp;category=' + category ;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (symbol != null){      </span>
+<span class="cstat-no" title="statement not covered" >            url = '/eurostat/symbol/' + symbol;    </span>
         } 
-       
+
         
 <span class="cstat-no" title="statement not covered" >        if (url.includes(category_group) || url.includes(category)){</span>
 <span class="cstat-no" title="statement not covered" >            Data = url_base + url .replace (' ','%20');</span>

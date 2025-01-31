@@ -24,7 +24,8 @@ global.lists = null;
     getEurostatData(category ='People at risk of income poverty after social transfers');        
     getEurostatData(category_group ='Poverty');        
     getEurostatData(country ='Denmark', category = 'People at risk of income poverty after social transfers');
-    getEurostatData(country ='Denmark', category_group = 'Poverty');             
+    getEurostatData(country ='Denmark', category_group = 'Poverty');   
+    getEurostatData(symbol ='51640');        
 
 ****************************************************************************************************************/
 
@@ -57,7 +58,9 @@ function getEurostatData() {
         if (country != null && category != null){    
             url = '/eurostat/country/' + country + '?c=' + apikey + '&category=' + category ;
         } 
-       
+        if (symbol != null){      
+            url = '/eurostat/symbol/' + symbol;    
+        }
         
         if (url.includes(category_group) || url.includes(category)){
             Data = url_base + url .replace (' ','%20');
