@@ -112,7 +112,7 @@ describe('getHistoricalUpdates', () => {
             }, 3000);
         });
     });
-z
+
     test('get Historical updates', async () => {
         a = await te.getHistoricalUpdates();
         b = await fetch('https://api.tradingeconomics.com/historical/updates?c=guest:guest');
@@ -130,7 +130,7 @@ describe('getHistoricalLatest', () => {
             }, 3000);
         });
     });
-z
+
     test('get Historical updates', async () => {
         a = await te.getHistoricalLatest();
         b = await fetch('https://api.tradingeconomics.com/historical/latest?c=guest:guest');
