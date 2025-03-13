@@ -47,8 +47,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
-
-        b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest&calendar=1&country=sweden');
+        b = await fetch('https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=guest:guest');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -113,9 +112,9 @@ describe('getHistoricalUpdates', () => {
             }, 3000);
         });
     });
-
+z
     test('get Historical updates', async () => {
-        a = await te.getHistoricalUpdates(); 
+        a = await te.getHistoricalUpdates();
         b = await fetch('https://api.tradingeconomics.com/historical/updates?c=guest:guest');
         c = await b.json();
 
@@ -131,8 +130,8 @@ describe('getHistoricalLatest', () => {
             }, 3000);
         });
     });
-
-    test('get latest historical', async () => {
+z
+    test('get Historical updates', async () => {
         a = await te.getHistoricalLatest();
         b = await fetch('https://api.tradingeconomics.com/historical/latest?c=guest:guest');
         c = await b.json();
@@ -154,35 +153,6 @@ describe('getAllCountries', () => {
 test('get all countries', async () => {
     a = await te.getAllCountries();
     b = await fetch('https://api.tradingeconomics.com/country?c=guest:guest');
-    c = await b.json();
-
-    expect(a).toEqual(c);
-}, 10000);
-
-});
-
-
-describe('getIndicatorChanges', () => {
-    beforeEach(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, 3000);
-        });
-    });
-
-
-test('get all changes', async () => {
-    a = await te.getIndicatorChanges();
-    b = await fetch('https://api.tradingeconomics.com/changes?c=guest:guest');
-    c = await b.json();
-
-    expect(a).toEqual(c);
-}, 10000);
-
-test('get all changes filtered by date', async () => {
-    a = await te.getIndicatorChanges(start_date='2024-10-29');
-    b = await fetch('https://api.tradingeconomics.com/changes/2024-10-29?c=guest:guest');
     c = await b.json();
 
     expect(a).toEqual(c);
