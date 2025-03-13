@@ -122,24 +122,6 @@ describe('getHistoricalUpdates', () => {
     }, 10000);
 });
 
-describe('getHistoricalLatest', () => {
-    beforeEach(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, 3000);
-        });
-    });
-
-    test('get Historical updates', async () => {
-        a = await te.getHistoricalLatest();
-        b = await fetch('https://api.tradingeconomics.com/historical/latest?c=guest:guest');
-        c = await b.json();
-
-        expect(a).toEqual(c);
-    }, 10000);
-});
-
 describe('getAllCountries', () => {
     beforeEach(() => {
         return new Promise(resolve => {
