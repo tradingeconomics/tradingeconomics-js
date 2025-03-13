@@ -567,6 +567,35 @@ function <span class="fstat-no" title="function not covered" >getHistoricalUpdat
 }
 &nbsp;
 /****************************************************************  
+   Example:
+&nbsp;
+        my_data = getHistoricalLatest();
+&nbsp;
+*******************************************************************/
+&nbsp;
+function <span class="fstat-no" title="function not covered" >getHistoricalLatest(</span>) {
+    
+<span class="cstat-no" title="statement not covered" >    try {</span>
+        var url = <span class="cstat-no" title="statement not covered" >'/historical/latest';</span>
+        var Data = <span class="cstat-no" title="statement not covered" >'';</span>
+    
+<span class="cstat-no" title="statement not covered" >        Data = url_base + url + '?c=' + apikey.replace (' ','%20');</span>
+    
+        // return fetch(Data)
+        // .then(func.handleErrors)   
+        // .then(function(response) {    
+        //     return response.json(); // process it inside the `then` when calling the function       
+        // }).catch(function (err) {
+        //     return err.message;
+        // });
+<span class="cstat-no" title="statement not covered" >        return func.makeTheRequest(Data)</span>
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >        throw error</span>
+    }
+     
+}
+&nbsp;
+/****************************************************************  
    A LIST OF ALL COUNTRIES WILL BE PROVIDED
    parameters:
     
@@ -602,8 +631,9 @@ function <span class="fstat-no" title="function not covered" >getAllCountries(</
 // module.exports.getIndicatorData = getIndicatorData;
 // module.exports.getDiscontinuedIndicators = getDiscontinuedIndicators
 // module.exports.getHistoricalUpdates = getHistoricalUpdates
+// module.exports.getHistoricalLatest = getHistoricalLatest
 &nbsp;
-module.exports = {getAllCountries,getIndicatorData,getDiscontinuedIndicators,getHistoricalUpdates}</pre></td></tr></table></pre>
+module.exports = {getAllCountries,getIndicatorData,getDiscontinuedIndicators,getHistoricalUpdates,getHistoricalLatest}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
