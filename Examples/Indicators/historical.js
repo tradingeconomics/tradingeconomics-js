@@ -25,6 +25,9 @@ const IndicatorsExample = async () => {
     //Get multiple indicators for a specific country
     const data5 = await te.getHistoricalData(country = ['mexico', 'sweden'],indicator = ['gdp', 'population'])
 
+    // Get latest historical
+    const data6 = await te.getHistoricalLatest()
+
     console.log(data); //Place one of the variables to test
   } catch (e) {
     console.log(`Error: ${e}`);

@@ -114,8 +114,26 @@ describe('getHistoricalUpdates', () => {
     });
 
     test('get Historical updates', async () => {
-        a = await te.getHistoricalUpdates();
+        a = await te.getHistoricalUpdates(); 
         b = await fetch('https://api.tradingeconomics.com/historical/updates?c=guest:guest');
+        c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 10000);
+});
+
+describe('getHistoricalLatest', () => {
+    beforeEach(() => {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve();
+            }, 3000);
+        });
+    });
+
+    test('get latest historical', async () => {
+        a = await te.getHistoricalLatest();
+        b = await fetch('https://api.tradingeconomics.com/historical/latest?c=guest:guest');
         c = await b.json();
 
         expect(a).toEqual(c);

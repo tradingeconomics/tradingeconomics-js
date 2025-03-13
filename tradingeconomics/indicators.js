@@ -149,6 +149,35 @@ function getHistoricalUpdates() {
 }
 
 /****************************************************************  
+   Example:
+
+        my_data = getHistoricalLatest();
+
+*******************************************************************/
+
+function getHistoricalLatest() {
+    
+    try {
+        var url = '/historical/latest';
+        var Data = '';
+    
+        Data = url_base + url + '?c=' + apikey.replace (' ','%20');
+    
+        // return fetch(Data)
+        // .then(func.handleErrors)   
+        // .then(function(response) {    
+        //     return response.json(); // process it inside the `then` when calling the function       
+        // }).catch(function (err) {
+        //     return err.message;
+        // });
+        return func.makeTheRequest(Data)
+    } catch (error) {
+        throw error
+    }
+     
+}
+
+/****************************************************************  
    A LIST OF ALL COUNTRIES WILL BE PROVIDED
    parameters:
     
@@ -184,5 +213,6 @@ function getAllCountries() {
 // module.exports.getIndicatorData = getIndicatorData;
 // module.exports.getDiscontinuedIndicators = getDiscontinuedIndicators
 // module.exports.getHistoricalUpdates = getHistoricalUpdates
+// module.exports.getHistoricalLatest = getHistoricalLatest
 
-module.exports = {getAllCountries,getIndicatorData,getDiscontinuedIndicators,getHistoricalUpdates}
+module.exports = {getAllCountries,getIndicatorData,getDiscontinuedIndicators,getHistoricalUpdates,getHistoricalLatest}
