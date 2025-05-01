@@ -25,13 +25,13 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with no arguments', async () => {
         a = await te.getIndicatorData();
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 
     // test('get Indicators Data with calendar argument', async () => {
@@ -53,46 +53,46 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 
     test('get Indicators Data with indicators argument', async () => {
         a = await te.getIndicatorData(indicator = ['gdp']);
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/country/all/gdp?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 
     test('get Indicators Data with ticker', async () => {
         a = await te.getIndicatorData(ticker = ['usurtot']);
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/country/ticker/usurtot?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 
     test('get Indicators Data with country and group argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], group = 'housing');
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest&group=housing');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 });
 
@@ -107,24 +107,24 @@ describe('getIndicatorGroups', () => {
 
     test('get Discontinued Indicators', async () => {
         a = await te.getDiscontinuedIndicators();
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/country/all/discontinued?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 
     test('get Disconnect Indicators with country argument', async () => {
         a = await te.getDiscontinuedIndicators(country = ['united states']);
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/country/united states/discontinued?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 });
 
@@ -139,13 +139,13 @@ describe('getHistoricalUpdates', () => {
 
     test('get Historical updates', async () => {
         a = await te.getHistoricalUpdates();
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/historical/updates?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 });
 
@@ -160,13 +160,13 @@ describe('getHistoricalLatest', () => {
 
     test('get latest historical', async () => {
         a = await te.getHistoricalLatest();
-        await sleep(5000)
+        sleep(3000)
         b = await fetch('https://api.tradingeconomics.com/historical/latest?c=guest:guest');
-        await sleep(5000)
+        sleep(3000)
         c = await b.json();
 
         expect(a).toEqual(c);
-        await sleep(5000)
+        sleep(3000)
     }, 100000);
 });
 
@@ -182,13 +182,13 @@ describe('getAllCountries', () => {
 
 test('get all countries', async () => {
     a = await te.getAllCountries();
-    await sleep(5000)
+    sleep(3000)
     b = await fetch('https://api.tradingeconomics.com/country?c=guest:guest');
-    await sleep(5000)
+    sleep(3000)
     c = await b.json();
 
     expect(a).toEqual(c);
-    await sleep(5000)
+    sleep(3000)
 }, 100000);
 
 });
