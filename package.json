@@ -35,5 +35,6 @@
     "scripts": {
       "test": "jest"
     }
-  }
+  },
+  "version": "2.5.1"
 }
