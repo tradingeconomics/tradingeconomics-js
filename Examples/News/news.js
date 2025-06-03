@@ -19,8 +19,12 @@ const NewsExample = async () => {
     const data3 = await te.getNews(indicator = "imports",start_date = "2021-01-01",end_date = "2021-02-02");
     const data4 = await te.getNews(country = "china",indicator = "imports");
 
+    // Get a list of news by type (markets, economy)
+    const data5 = await te.getNews(type = "markets");
+    const data6 = await te.getNews(type = "economy");
+
     // Get a paginated news list
-    const data5 = await te.getNews(limit = "4", start = "2");
+    const data7 = await te.getNews(limit = "4", start = "2");
 
     console.log(data); //Place one of the variables to test
   } catch (e) {
