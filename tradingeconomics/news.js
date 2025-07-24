@@ -39,7 +39,10 @@ function getNews() {
 
         if (type != null) {
             url = '/news/?type='+type; 
-
+        
+        } else if (ticker != null) {
+            url = '/news/ticker/'+ticker;
+        
         } else {
             if (country != null) {
                 url = '/news/country/' + country;
