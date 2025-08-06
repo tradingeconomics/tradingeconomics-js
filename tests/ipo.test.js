@@ -9,7 +9,7 @@ test('getIpo no arguments', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getIpo with ticker argument', async () => {
     a = await te.getIpo(ticker='SWIN');
@@ -17,7 +17,7 @@ test('getIpo with ticker argument', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getIpo with country argument', async () => {
     a = await te.getIpo(country='United States');
@@ -25,7 +25,7 @@ test('getIpo with country argument', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getIpo with country and date argument', async () => {
     a = await te.getIpo(country='United States', start_date='2023-09-01', end_date='2023-12-01');
@@ -33,7 +33,7 @@ test('getIpo with country and date argument', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getIpo with ticker and date argument', async () => {
     a = await te.getIpo(ticker='SWIN', start_date='2023-09-01', end_date='2023-12-01');
@@ -41,4 +41,4 @@ test('getIpo with ticker and date argument', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);

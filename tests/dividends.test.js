@@ -9,7 +9,7 @@ test('getDividends no arguments', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getDividends with symbol argument', async () => {
     a = await te.getDividends(symbol='aapl:us');
@@ -17,7 +17,7 @@ test('getDividends with symbol argument', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getDividends with symbol and start_date arguments', async () => {
     a = await te.getDividends(symbol='aapl:us', start_date='2018-01-01');
@@ -25,7 +25,7 @@ test('getDividends with symbol and start_date arguments', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 test('getDividends with symbol, start_date and end_date arguments', async () => {
     a = await te.getDividends(symbol='aapl:us', start_date='2018-01-01', end_date='2019-01-01');
@@ -33,4 +33,4 @@ test('getDividends with symbol, start_date and end_date arguments', async () => 
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);

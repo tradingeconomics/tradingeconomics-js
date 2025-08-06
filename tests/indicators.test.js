@@ -3,6 +3,8 @@ const fetch = require('node-fetch')
 
 te.login('guest:guest');
 
+jest.setTimeout(20000);
+
 
 describe('getIndicatorData', () => {
     beforeEach(() => {
@@ -26,7 +28,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 
     // test('get Indicators Data with calendar argument', async () => {
     //     a = await te.getIndicatorData(calendar = 1);
@@ -34,7 +36,7 @@ describe('getIndicatorData', () => {
     //     c = await b.json();
 
     //     expect(a).toEqual(c);
-    // }, 10000);
+    // }, 20000);
 
     // test('get Indicators Data with countries argument', async () => {
     //     a = await te.getIndicatorData(country = ['sweden']);
@@ -43,7 +45,7 @@ describe('getIndicatorData', () => {
     //     c = await b.json();
 
     //     expect(a).toEqual(c);
-    // }, 10000);
+    // }, 20000);
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
@@ -51,7 +53,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 
     test('get Indicators Data with indicators argument', async () => {
         a = await te.getIndicatorData(indicator = ['gdp']);
@@ -59,7 +61,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 
     test('get Indicators Data with ticker', async () => {
         a = await te.getIndicatorData(ticker = ['usurtot']);
@@ -67,7 +69,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 
     test('get Indicators Data with country and group argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], group = 'housing');
@@ -75,15 +77,23 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 });
 
 describe('getIndicatorGroups', () => {
     beforeEach(() => {
+
+        global.country = null;
+        global.indicator = null;
+        global.ticker = null;
+        global.group = null;
+        global.calendar = null;
+
+
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
-            }, 3000);
+            }, 5000);
         });
     });
 
@@ -93,7 +103,7 @@ describe('getIndicatorGroups', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 
     test('get Disconnect Indicators with country argument', async () => {
         a = await te.getDiscontinuedIndicators(country = ['united states']);
@@ -101,15 +111,22 @@ describe('getIndicatorGroups', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 });
 
 describe('getHistoricalUpdates', () => {
+
+    global.country = null;
+    global.indicator = null;
+    global.ticker = null;
+    global.group = null;
+    global.calendar = null;
+    
     beforeEach(() => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
-            }, 3000);
+            }, 5000);
         });
     });
 
@@ -119,10 +136,17 @@ describe('getHistoricalUpdates', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 });
 
 describe('getHistoricalLatest', () => {
+
+    global.country = null;
+    global.indicator = null;
+    global.ticker = null;   
+    global.group = null;
+    global.calendar = null;
+
     beforeEach(() => {
         return new Promise(resolve => {
             setTimeout(() => {
@@ -137,7 +161,7 @@ describe('getHistoricalLatest', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 10000);
+    }, 20000);
 });
 
 describe('getAllCountries', () => {
@@ -145,7 +169,7 @@ describe('getAllCountries', () => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
-            }, 3000);
+            }, 5000);
         });
     });
 
@@ -156,6 +180,6 @@ test('get all countries', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 10000);
+}, 20000);
 
 });
