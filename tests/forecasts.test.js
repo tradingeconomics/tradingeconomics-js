@@ -18,7 +18,7 @@ describe('getForecastsUpdates', () => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve();
-            }, 3000);
+            }, 5000);
         });
     });
 

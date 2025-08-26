@@ -14,6 +14,7 @@ global.components_symbol = null;
 global.search_term = null;
 global.category = null;
 global.cross = null;
+global.type = null;
 
 
 //This function builds the path to get the API request:
@@ -24,6 +25,8 @@ global.cross = null;
         commodities, index, currency, bond and crypto
     -> Search_term: search by country
         By Default, the search will look into the categories:Indexes, markets, bonds, and commodities.
+    -> type: string 
+        Works for bonds only (2Y, 5Y, 10Y, 15Y, 20Y, 30Y)
 
    example:
     getMarketSnap(marketsField ='index');
@@ -34,7 +37,8 @@ global.cross = null;
     getMarketSnap(country ='japan');
     getMarketSnap(country =['japan', 'portugal]);      
     getMarketSnap(cross ='eur');           
-    getMarketSnap(search_term ='japan', category = 'index, markets');        
+    getMarketSnap(search_term ='japan', category = 'index, markets');
+    getMarketSnap(marketsField = 'bond',type = '5Y');
 
 *******************************************************************************************************/
 
@@ -43,6 +47,8 @@ function getMarketSnap(){
     try {
         var Data = '';
         var url = '';
+
+        if (marketsField != 'bond' && type != null) throw new Error('The type parameter is only available for bonds. Accepted values are 2Y, 5Y, 10Y, 15Y, 20Y, 30Y');
        
         if (marketsField === 'commodities'){    
             url = '/markets/commodities';    
@@ -88,6 +94,10 @@ function getMarketSnap(){
             Data = url_base + url .replace (' ','%20');
         }else{
             Data = url_base + url + '?c=' + apikey.replace (' ','%20');
+        }
+
+        if (type != null) {
+            Data += '&type=' + type.replace (' ','%20');
         }
 
         let result =  func.makeTheRequest(Data).then(data => { 

@@ -24,4 +24,8 @@ jobs:
       - run: npm run build --if-present
 
       - name: Run tests
-        run: npm test
+        run: |
+          for file in $(find tests -type f -name "*.test.js"); do
+            echo "Running test: $file"
+            npx jest "$file" --runInBand || exit 1
+          done

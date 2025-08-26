@@ -10,11 +10,14 @@ function sleep(ms) {
 describe('getCalendar', () => {
 
     beforeEach(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, 3000);
-        });
+
+        global.country = null;
+        global.indicator = null;
+        global.ticker = null;
+        global.group = null;
+        global.calendar = null;
+        
+        sleep(3000)
     });
 
     test('getCalendar with country and start_date and end_date argument', async () => {
@@ -220,12 +223,16 @@ describe('getCalendar', () => {
 })
 
 describe('getCalendarEventsByGroup', () => {
+
     beforeEach(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, 3000);
-        });
+
+        global.country = null;
+        global.indicator = null;
+        global.ticker = null;
+        global.group = null;
+        global.calendar = null;
+
+        sleep(3000)
     });
 
     test('getCalendarEventsByGroup with start_date argument', async () => {
@@ -313,12 +320,19 @@ describe('getCalendarEventsByGroup', () => {
 })
 
 describe('getCalendarEvents', () => {
+
     beforeEach(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, 3000);
-        });
+        global.country = null;
+        global.indicator = null;
+        global.ticker = null;
+        global.group = null;
+        global.calendar = null;
+
+        // return new Promise(resolve => {
+        //     setTimeout(() => {
+        //         resolve();
+        //     }, 5000);
+        // });
     });
 
     test('getCalendarEvents', async () => {
