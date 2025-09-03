@@ -13,6 +13,7 @@ global.ticker = null;
 global.group = null;
 global.calendar = null;
 global.start_date = null;
+global.date = null;
 
 
 //This function builds the path to get the API request:
@@ -152,7 +153,9 @@ function getHistoricalUpdates() {
 
 /****************************************************************  
    Example:
-
+        my_data = getHistoricalLatest(country='united states');
+        my_data = getHistoricalLatest(country=['united states', 'brazil']);
+        my_data = getHistoricalLatest(country=['united states', 'brazil'], date='2025-08-27');
         my_data = getHistoricalLatest();
 
 *******************************************************************/
@@ -164,14 +167,15 @@ function getHistoricalLatest() {
         var Data = '';
     
         Data = url_base + url + '?c=' + apikey.replace (' ','%20');
-    
-        // return fetch(Data)
-        // .then(func.handleErrors)   
-        // .then(function(response) {    
-        //     return response.json(); // process it inside the `then` when calling the function       
-        // }).catch(function (err) {
-        //     return err.message;
-        // });
+
+        if (date != null) {
+            Data += '&date=' + date;
+        }
+
+        if (country != null) {
+            Data += '&country=' + country;
+        }
+        
         return func.makeTheRequest(Data)
     } catch (error) {
         throw error
