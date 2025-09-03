@@ -13,10 +13,10 @@ global.end_date = null;
     String: start_date, end_date
 
     example:
-    getDividends();
-    getDividends(start_date = '2018-02-02');
-    getDividends(ticker ='CMCSA:US', start_date = '2023-09-01');
-    getDividends(country =['United States'], start_date = '2023-09-01', end_date = '2023-12-01');
+    getStockSplits();
+    getStockSplits(start_date = '2018-02-02');
+    getStockSplits(ticker ='CMCSA:US', start_date = '2023-09-01');
+    getStockSplits(country =['United States'], start_date = '2023-09-01', end_date = '2023-12-01');
 
 *********************************************************************************************/
 
