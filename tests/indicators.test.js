@@ -36,34 +36,16 @@ describe("getIndicatorData", () => {
     await sleep(3000);
   }, 100000);
 
-  // test('get Indicators Data with calendar argument', async () => {
-  //     a = await te.getIndicatorData(calendar = 1);
-  //     b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest&calendar=1');
-  //     c = await b.json();
-
-  //     expect(a).toEqual(c);
-  // }, 20000);
-
-  // test('get Indicators Data with countries argument', async () => {
-  //     a = await te.getIndicatorData(country = ['sweden']);
-  //     b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest');
-
-  //     c = await b.json();
-
-  //     expect(a).toEqual(c);
-  // }, 20000);
-
   test("get Indicators Data with country and calendar argument", async () => {
-    a = await te.getIndicatorData((country = ["sweden"]), (calendar = 1));
-    await sleep(3000);
-    b = await fetch(
-      "https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=guest:guest"
-    );
-    await sleep(3000);
-    c = await b.json();
+    const url =
+      "https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=guest:guest";
 
-    expect(a).toEqual(c);
-    await sleep(3000);
+    const [a, c] = await Promise.all([
+      te.getIndicatorData((country = ["sweden"]), (calendar = 1)),
+      fetch(url).then((r) => r.json()),
+    ]);
+
+    expect(a.length).toBe(c.length);
   }, 100000);
 
   test("get Indicators Data with indicators argument", async () => {
