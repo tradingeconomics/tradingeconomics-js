@@ -47,5 +47,5 @@
     "start": "./index.js",
     "test": "jest --verbose --rootDir=../tests"
   },
-  "version": "2.5.7"
+  "version": "2.5.8"
 }

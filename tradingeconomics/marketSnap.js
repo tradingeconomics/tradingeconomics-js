@@ -158,5 +158,36 @@ function getMarketsByCountry(){
 
 }
 
+/******************************************************************************************* 
+ * ------------------------ Discontinued Markets ------------------------------------------*
+ parameters:
+
+    example:
+    getDiscontinuedMarkets();
+*********************************************************************************************/
+
+function getDiscontinuedMarkets(){
+    try {
+        let linkAPI = 'https://api.tradingeconomics.com/markets/discontinued/';
+
+        try {
+            linkAPI += '?c=' + apikey;
+          } 
+        catch (err) {
+            if (err instanceof TypeError) {
+              throw new LoginError('You need to do login before making any request');
+            } else {
+              throw err;
+            }
+        }
+
+        return func.makeTheRequest(linkAPI)
+    }
+    catch (error) {
+        throw error
+    }
+}
+
+module.exports.getDiscontinuedMarkets = getDiscontinuedMarkets;
 module.exports.getMarketSnap = getMarketSnap;
 module.exports.getMarketsByCountry = getMarketsByCountry;
