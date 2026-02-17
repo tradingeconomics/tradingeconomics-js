@@ -34,7 +34,7 @@ module.exports = Object.assign(
     require('./dividends.js'),
     require('./creditRatings.js'),
     require('./ipo.js'),
-    require('./stockSplits.js')
+    require('./stockSplits.js'),
 );
 
 
