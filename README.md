@@ -101,9 +101,9 @@ https://docs.tradingeconomics.com
 
 #
 
-## Learn More
+## Learn More about our API
 
-https://tradingeconomics.com/analytics/api.aspx
+https://tradingeconomics.com/api/
 
 
 
