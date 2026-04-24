@@ -1,7 +1,7 @@
 const te = require('tradingeconomics');
 const fetch = require('node-fetch')
 
-te.login('guest:guest');
+te.login('');
 
 jest.setTimeout(20000);
 
@@ -24,7 +24,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with no arguments', async () => {
         a = await te.getIndicatorData();
-        b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/indicators?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -32,7 +32,7 @@ describe('getIndicatorData', () => {
 
     // test('get Indicators Data with calendar argument', async () => {
     //     a = await te.getIndicatorData(calendar = 1);
-    //     b = await fetch('https://api.tradingeconomics.com/indicators?c=guest:guest&calendar=1');
+    //     b = await fetch('https://api.tradingeconomics.com/indicators?c=&calendar=1');
     //     c = await b.json();
 
     //     expect(a).toEqual(c);
@@ -40,7 +40,7 @@ describe('getIndicatorData', () => {
 
     // test('get Indicators Data with countries argument', async () => {
     //     a = await te.getIndicatorData(country = ['sweden']);
-    //     b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest');
+    //     b = await fetch('https://api.tradingeconomics.com/country/sweden?c=');
                          
     //     c = await b.json();
 
@@ -49,7 +49,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
-        b = await fetch('https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/indicators?calendar=1&country=sweden&c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -57,7 +57,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with indicators argument', async () => {
         a = await te.getIndicatorData(indicator = ['gdp']);
-        b = await fetch('https://api.tradingeconomics.com/country/all/gdp?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/country/all/gdp?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -65,7 +65,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with ticker', async () => {
         a = await te.getIndicatorData(ticker = ['usurtot']);
-        b = await fetch('https://api.tradingeconomics.com/country/ticker/usurtot?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/country/ticker/usurtot?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -73,7 +73,7 @@ describe('getIndicatorData', () => {
 
     test('get Indicators Data with country and group argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], group = 'housing');
-        b = await fetch('https://api.tradingeconomics.com/country/sweden?c=guest:guest&group=housing');
+        b = await fetch('https://api.tradingeconomics.com/country/sweden?c=&group=housing');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -99,7 +99,7 @@ describe('getIndicatorGroups', () => {
 
     test('get Discontinued Indicators', async () => {
         a = await te.getDiscontinuedIndicators();
-        b = await fetch('https://api.tradingeconomics.com/country/all/discontinued?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/country/all/discontinued?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -107,7 +107,7 @@ describe('getIndicatorGroups', () => {
 
     test('get Disconnect Indicators with country argument', async () => {
         a = await te.getDiscontinuedIndicators(country = ['united states']);
-        b = await fetch('https://api.tradingeconomics.com/country/united states/discontinued?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/country/united states/discontinued?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -132,7 +132,7 @@ describe('getHistoricalUpdates', () => {
 
     test('get Historical updates', async () => {
         a = await te.getHistoricalUpdates();
-        b = await fetch('https://api.tradingeconomics.com/historical/updates?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/historical/updates?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -157,7 +157,7 @@ describe('getHistoricalLatest', () => {
 
     test('get latest historical', async () => {
         a = await te.getHistoricalLatest();
-        b = await fetch('https://api.tradingeconomics.com/historical/latest?c=guest:guest');
+        b = await fetch('https://api.tradingeconomics.com/historical/latest?c=');
         c = await b.json();
 
         expect(a).toEqual(c);
@@ -176,7 +176,7 @@ describe('getAllCountries', () => {
 
 test('get all countries', async () => {
     a = await te.getAllCountries();
-    b = await fetch('https://api.tradingeconomics.com/country?c=guest:guest');
+    b = await fetch('https://api.tradingeconomics.com/country?c=');
     c = await b.json();
 
     expect(a).toEqual(c);

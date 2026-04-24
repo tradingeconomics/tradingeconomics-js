@@ -10,7 +10,7 @@ The basic tests have the following pattern:
 
 * Fetch data through the API URL directly:
 
-`let b = await fetch('https://api.tradingeconomics.com/calendar/?c=guest:guest&f=json&importance=1&values=true');`  
+`let b = await fetch('https://api.tradingeconomics.com/calendar/?c=YOUR_API_KEY:YOUR_API_SECRET&f=json&importance=1&values=true');`  
 `let c = await b.json();`
 
 * Compare the 2 results:

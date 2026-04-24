@@ -6,7 +6,7 @@ const te = require('tradingeconomics')
 
 const CalendarExample = async () => {
   try {
-    // Login with client key or leave it blank and a sample of data will be provided, you can get your free key here: http://developer.tradingeconomics.com
+    // Login with your API key. Subscribe to a plan at https://tradingeconomics.com/api/pricing.aspx to get an API key.
     await te.login();
 
     //Get all calendar events (You can pass importance parameter or date parameters (yyyy-mm-dd) for specific data )

@@ -45,8 +45,10 @@ apikey="key:secret" node app.js
 Authentication using inline code
 
 ```javascript
-te.login('guest:guest'); # replace with your key
+te.login('YOUR_API_KEY:YOUR_API_SECRET');
 ```
+
+Please subscribe to a plan at https://tradingeconomics.com/api/pricing.aspx to get an API key.
 
 #
 
@@ -82,10 +84,10 @@ https://github.com/tradingeconomics/tradingeconomics-js/tree/main/Examples
 
 ## Docker
 
-Please set apikey with your credentials
+Please set apikey with your credentials. Subscribe to a plan at https://tradingeconomics.com/api/pricing.aspx to get an API key.
 
 ```javascript
-docker run --rm -it --init --name te-nodejs -e apikey='guest:guest' tradingeconomics/nodejs:latest sh
+docker run --rm -it --init --name te-nodejs -e apikey='YOUR_API_KEY:YOUR_API_SECRET' tradingeconomics/nodejs:latest sh
 ```
 
 ```javascript
