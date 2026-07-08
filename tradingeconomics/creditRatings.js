@@ -6,7 +6,7 @@ global.end_date = null;
 
 //This function builds the path to get the API request:
 /****************************************************************************************************************************  
-  WITHOUT PARAMETERS A LIST OF ALL CREDIT RATINGS WILL BE PROVIDED BUT NOT WITH KEY guest:guest
+  WITHOUT PARAMETERS A LIST OF ALL CREDIT RATINGS WILL BE PROVIDED
   parameters:
     String or list: country
 

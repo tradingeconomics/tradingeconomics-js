@@ -6,7 +6,7 @@ const te = require('tradingeconomics')
 
 const IndicatorsExample = async () => {
   try {
-    // Login with client key or leave it blank and a sample of data will be provided, you can get your free key here: http://developer.tradingeconomics.com
+    // Login with your API key. Subscribe to a plan at https://tradingeconomics.com/api/pricing.aspx to get an API key.
     await te.login();
 
     //Get credit ratings for all countries

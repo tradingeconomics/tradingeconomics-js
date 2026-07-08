@@ -1,84 +1,56 @@
 const te = require('tradingeconomics');
 const fetch = require('node-fetch')
 
-te.login('guest:guest');
+te.login('');
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+test('get stock splits calendar', async () => {
+    a = await te.getStockSplits();
+    b = await fetch('https://api.tradingeconomics.com/splits?c=&f=json');
+    c = await b.json();
 
-describe('getStockSplits', () => {
-    beforeEach(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve();
-            }, 3000);
-        });
-    });
+    expect(a).toEqual(c);
+}, 20000);
 
-    test('get stock splits calendar', async () => {
-        a = await te.getStockSplits();
-        sleep(3000)
-        b  = await fetch('https://api.tradingeconomics.com/splits?c=guest:guest&f=json');
-        sleep(3000)
-        c  = await b.json();
+test('get stock splits calendar with date argument', async () => {
+    a = await te.getStockSplits(start_date='2023-09-01', end_date='2023-12-01');
+    b = await fetch('https://api.tradingeconomics.com/splits?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+    c = await b.json();
 
         expect(a).toEqual(c);
         sleep(3000)
     }, 100000);
 
-    test('get stock splits calendar with date argument', async () => {
-        a = await te.getStockSplits(start_date='2023-09-01', end_date='2023-12-01');
-        sleep(3000)
-        b  = await fetch('https://api.tradingeconomics.com/splits?c=guest:guest&f=json&d1=2023-09-01&d2=2023-12-01');
-        sleep(3000)
-        c  = await b.json();
+test('get stock splits calendar with country argument', async () => {
+    a = await te.getStockSplits(country='United States');
+    b = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=&f=json');
+    c = await b.json();
 
         expect(a).toEqual(c);
         sleep(3000)
     }, 100000);
 
-    test('get stock splits calendar with country argument', async () => {
-        a = await te.getStockSplits(country='United States');
-        sleep(3000)
-        b  = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=guest:guest&f=json');
-        sleep(3000)
-        c  = await b.json();
+test('get stock splits calendar with country and date argument', async () => {
+    a = await te.getStockSplits(country='United States', start_date='2023-09-01', end_date='2023-12-01');
+    b = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+    c = await b.json();
 
         expect(a).toEqual(c);
         sleep(3000)
     }, 100000);
 
-    test('get stock splits calendar with country and date argument', async () => {
-        a = await te.getStockSplits(country='United States', start_date='2023-09-01', end_date='2023-12-01');
-        sleep(3000)
-        b  = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=guest:guest&f=json&d1=2023-09-01&d2=2023-12-01');
-        sleep(3000)
-        c  = await b.json();
+test('get stock splits calendar with ticker argument', async () => {
+    a = await te.getStockSplits(ticker='MMET');
+    b = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=&f=json');
+    c = await b.json();
 
         expect(a).toEqual(c);
         sleep(3000)
     }, 100000);
 
-    test('get stock splits calendar with ticker argument', async () => {
-        a = await te.getStockSplits(ticker='MMET');
-        sleep(3000)
-        b  = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=guest:guest&f=json');
-        sleep(3000)
-        c  = await b.json();
+test('get stock splits calendar with ticker and date argument', async () => {
+    a = await te.getStockSplits(ticker='MMET', start_date='2023-09-01', end_date='2023-12-01');
+    b = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+    c = await b.json();
 
-        expect(a).toEqual(c);
-        sleep(3000)
-    }, 100000);
-
-    test('get stock splits calendar with ticker and date argument', async () => {
-        a = await te.getStockSplits(ticker='MMET', start_date='2023-09-01', end_date='2023-12-01');
-        sleep(3000)
-        b  = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=guest:guest&f=json&d1=2023-09-01&d2=2023-12-01');
-        sleep(3000)
-        c  = await b.json();
-
-        expect(a).toEqual(c);
-        sleep(3000)
-    }, 100000);
-})
+    expect(a).toEqual(c);
+}, 20000);

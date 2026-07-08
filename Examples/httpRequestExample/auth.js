@@ -3,7 +3,7 @@
 //setting headers for authorization - key:secret
 var headers = {
   'Accept': 'Application/xml',
-  'Authorization': 'Client guest:guest'    
+  'Authorization': 'Client YOUR_API_KEY:YOUR_API_SECRET'    
 };
 
 var buffer = '';//setting variable to store response 

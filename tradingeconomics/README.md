@@ -24,8 +24,8 @@ npm install tradingeconomics
 const te = require('tradingeconomics');
 ```
  -  ### Authentication
-    - Login if you have a client key or leave it blank and a sample of data will be provided.
-    - Note: Get your key here: http://developer.tradingeconomics.com 
+    - Login with your API key.
+    - Subscribe to a plan at https://tradingeconomics.com/api/pricing.aspx to get an API key. 
 
 ```javascript
 te.login();

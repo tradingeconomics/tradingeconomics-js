@@ -7,8 +7,8 @@ var WebSocket = require('ws'),
 	defaultOptions = {
 		// url: 'wss://stream.tradingeconomics.com/', 
 		url: 'ws://stream.tradingeconomics.com/', 
-		key: 'guest',
-		secret: 'guest',
+		key: '',
+		secret: '',
 		reconnect: true, //reconnect on error/disconnect 
 		reconnect_timeout: 30000, //time (in miliseconds) to wait before attepmt to reconect
 		onMessage: function(){},

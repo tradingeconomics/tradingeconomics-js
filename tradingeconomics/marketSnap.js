@@ -49,6 +49,7 @@ function getMarketSnap(){
         var url = '';
 
         if (marketsField != 'bond' && type != null) throw new Error('The type parameter is only available for bonds. Accepted values are 2Y, 5Y, 10Y, 15Y, 20Y, 30Y');
+        if (country != null && marketsField != null && !['currency', 'index', 'bond'].includes(marketsField)) throw new Error('The country parameter is only supported for currency, index, and bond markets.');
        
         if (marketsField === 'commodities'){    
             url = '/markets/commodities';    
@@ -77,7 +78,7 @@ function getMarketSnap(){
         if(components_symbol != null){
             url = '/markets/components/' + components_symbol;
         }
-        if(country != null){
+        if(country != null && marketsField == null){
             url = '/markets/stocks/country/' + country;
         }
     
@@ -98,6 +99,9 @@ function getMarketSnap(){
 
         if (type != null) {
             Data += '&type=' + type.replace (' ','%20');
+        }
+        if (country != null && marketsField != null) {
+            Data += '&country=' + country.replace (' ','%20');
         }
 
         let result =  func.makeTheRequest(Data).then(data => { 

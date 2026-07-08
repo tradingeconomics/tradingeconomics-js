@@ -8,11 +8,15 @@ function login(apikey = null) {
     if (process.env.apikey) {
       apikey = process.env.apikey;
     } else {
-      apikey = "guest:guest";
+      apikey = "";
     }
   }
 
-  if(apikey != "guest:guest" && apikey.indexOf(":") < 0){
+  if(apikey === ""){
+    return console.log("Please subscribe to a plan at https://tradingeconomics.com/api/pricing.aspx to get an API key.")
+  }
+
+  if(apikey.indexOf(":") < 0){
     return console.log("Invalid credentials.")
   }
   
