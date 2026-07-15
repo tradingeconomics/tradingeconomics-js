@@ -1,52 +1,58 @@
-const te = require('tradingeconomics');
-const fetch = require('node-fetch')
+﻿const te = require('tradingeconomics');
+const { API_KEY, describeIntegration, fetch } = require('./integrationHelper');
 
-te.login('');
+te.login(API_KEY);
 
-test('get stock splits calendar', async () => {
-    a = await te.getStockSplits();
-    b = await fetch('https://api.tradingeconomics.com/splits?c=&f=json');
-    c = await b.json();
+describeIntegration('getStockSplits', () => {
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('get stock splits calendar', async () => {
+        a = await te.getStockSplits();
+        b = await fetch('https://api.tradingeconomics.com/splits?c=&f=json');
+        c = await b.json();
 
-test('get stock splits calendar with date argument', async () => {
-    a = await te.getStockSplits(start_date='2023-09-01', end_date='2023-12-01');
-    b = await fetch('https://api.tradingeconomics.com/splits?c=&f=json&d1=2023-09-01&d2=2023-12-01');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('get stock splits calendar with date argument', async () => {
+        a = await te.getStockSplits(start_date='2023-09-01', end_date='2023-12-01');
+        b = await fetch('https://api.tradingeconomics.com/splits?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+        c = await b.json();
 
-test('get stock splits calendar with country argument', async () => {
-    a = await te.getStockSplits(country='United States');
-    b = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=&f=json');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('get stock splits calendar with country argument', async () => {
+        a = await te.getStockSplits(country='United States');
+        b = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=&f=json');
+        c = await b.json();
 
-test('get stock splits calendar with country and date argument', async () => {
-    a = await te.getStockSplits(country='United States', start_date='2023-09-01', end_date='2023-12-01');
-    b = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=&f=json&d1=2023-09-01&d2=2023-12-01');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('get stock splits calendar with country and date argument', async () => {
+        a = await te.getStockSplits(country='United States', start_date='2023-09-01', end_date='2023-12-01');
+        b = await fetch('https://api.tradingeconomics.com/splits/country/United States?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+        c = await b.json();
 
-test('get stock splits calendar with ticker argument', async () => {
-    a = await te.getStockSplits(ticker='MMET');
-    b = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=&f=json');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('get stock splits calendar with ticker argument', async () => {
+        a = await te.getStockSplits(ticker='MMET');
+        b = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=&f=json');
+        c = await b.json();
 
-test('get stock splits calendar with ticker and date argument', async () => {
-    a = await te.getStockSplits(ticker='MMET', start_date='2023-09-01', end_date='2023-12-01');
-    b = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=&f=json&d1=2023-09-01&d2=2023-12-01');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('get stock splits calendar with ticker and date argument', async () => {
+        a = await te.getStockSplits(ticker='MMET', start_date='2023-09-01', end_date='2023-12-01');
+        b = await fetch('https://api.tradingeconomics.com/splits/ticker/MMET?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+        c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 60000);
+
+});
+
+

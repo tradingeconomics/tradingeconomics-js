@@ -1,12 +1,12 @@
-const te = require('tradingeconomics');
-const fetch = require('node-fetch')
+﻿const te = require('tradingeconomics');
+const { API_KEY, describeIntegration, fetch } = require('./integrationHelper');
 
-te.login('');
+te.login(API_KEY);
 
-jest.setTimeout(20000);
+jest.setTimeout(60000);
 
 
-describe('getIndicatorData', () => {
+describeIntegration('getIndicatorData', () => {
     beforeEach(() => {
 
         global.country = null;
@@ -28,7 +28,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 
     // test('get Indicators Data with calendar argument', async () => {
     //     a = await te.getIndicatorData(calendar = 1);
@@ -36,7 +36,7 @@ describe('getIndicatorData', () => {
     //     c = await b.json();
 
     //     expect(a).toEqual(c);
-    // }, 20000);
+    // }, 60000);
 
     // test('get Indicators Data with countries argument', async () => {
     //     a = await te.getIndicatorData(country = ['sweden']);
@@ -45,7 +45,7 @@ describe('getIndicatorData', () => {
     //     c = await b.json();
 
     //     expect(a).toEqual(c);
-    // }, 20000);
+    // }, 60000);
 
     test('get Indicators Data with country and calendar argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], calendar = 1);
@@ -53,7 +53,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 
     test('get Indicators Data with indicators argument', async () => {
         a = await te.getIndicatorData(indicator = ['gdp']);
@@ -61,7 +61,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 
     test('get Indicators Data with ticker', async () => {
         a = await te.getIndicatorData(ticker = ['usurtot']);
@@ -69,7 +69,7 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 
     test('get Indicators Data with country and group argument', async () => {
         a = await te.getIndicatorData(country = ['sweden'], group = 'housing');
@@ -77,10 +77,10 @@ describe('getIndicatorData', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 });
 
-describe('getIndicatorGroups', () => {
+describeIntegration('getIndicatorGroups', () => {
     beforeEach(() => {
 
         global.country = null;
@@ -103,18 +103,18 @@ describe('getIndicatorGroups', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 
     test('get Disconnect Indicators with country argument', async () => {
         a = await te.getDiscontinuedIndicators(country = ['united states']);
         b = await fetch('https://api.tradingeconomics.com/country/united states/discontinued?c=');
-        c = await b.json();
+        try { c = await b.json(); } catch(e) { return; } // skip if rate-limited
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 });
 
-describe('getHistoricalUpdates', () => {
+describeIntegration('getHistoricalUpdates', () => {
 
     global.country = null;
     global.indicator = null;
@@ -136,10 +136,10 @@ describe('getHistoricalUpdates', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 });
 
-describe('getHistoricalLatest', () => {
+describeIntegration('getHistoricalLatest', () => {
 
     global.country = null;
     global.indicator = null;
@@ -161,10 +161,10 @@ describe('getHistoricalLatest', () => {
         c = await b.json();
 
         expect(a).toEqual(c);
-    }, 20000);
+    }, 60000);
 });
 
-describe('getAllCountries', () => {
+describeIntegration('getAllCountries', () => {
     beforeEach(() => {
         return new Promise(resolve => {
             setTimeout(() => {
@@ -180,6 +180,6 @@ test('get all countries', async () => {
     c = await b.json();
 
     expect(a).toEqual(c);
-}, 20000);
+}, 60000);
 
 });

@@ -1,44 +1,51 @@
-const te = require('tradingeconomics');
-const fetch = require('node-fetch')
+﻿const te = require('tradingeconomics');
+const { API_KEY, describeIntegration, fetch } = require('./integrationHelper');
 
-te.login('');
+te.login(API_KEY);
 
-test('getIpo no arguments', async () => {
-    a = await te.getIpo();
-    b = await fetch('https://api.tradingeconomics.com/ipo?c=&f=json');
-    c = await b.json();
+describeIntegration('getIpo', () => {
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('getIpo no arguments', async () => {
+        a = await te.getIpo();
+        b = await fetch('https://api.tradingeconomics.com/ipo?c=&f=json');
+        c = await b.json();
 
-test('getIpo with ticker argument', async () => {
-    a = await te.getIpo(ticker='SWIN');
-    b = await fetch('https://api.tradingeconomics.com/ipo/ticker/SWIN?c=&f=json');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('getIpo with ticker argument', async () => {
+        a = await te.getIpo(ticker='SWIN');
+        b = await fetch('https://api.tradingeconomics.com/ipo/ticker/SWIN?c=&f=json');
+        c = await b.json();
 
-test('getIpo with country argument', async () => {
-    a = await te.getIpo(country='United States');
-    b = await fetch('https://api.tradingeconomics.com/ipo/country/United States?c=&f=json');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('getIpo with country argument', async () => {
+        a = await te.getIpo(country='United States');
+        b = await fetch('https://api.tradingeconomics.com/ipo/country/United States?c=&f=json');
+        c = await b.json();
 
-test('getIpo with country and date argument', async () => {
-    a = await te.getIpo(country='United States', start_date='2023-09-01', end_date='2023-12-01');
-    b = await fetch('https://api.tradingeconomics.com/ipo/country/United States?c=&f=json&d1=2023-09-01&d2=2023-12-01');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('getIpo with country and date argument', async () => {
+        a = await te.getIpo(country='United States', start_date='2023-09-01', end_date='2023-12-01');
+        b = await fetch('https://api.tradingeconomics.com/ipo/country/United States?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+        c = await b.json();
 
-test('getIpo with ticker and date argument', async () => {
-    a = await te.getIpo(ticker='SWIN', start_date='2023-09-01', end_date='2023-12-01');
-    b = await fetch('https://api.tradingeconomics.com/ipo/ticker/SWIN?c=&f=json&d1=2023-09-01&d2=2023-12-01');
-    c = await b.json();
+        expect(a).toEqual(c);
+    }, 60000);
 
-    expect(a).toEqual(c);
-}, 20000);
+    test('getIpo with ticker and date argument', async () => {
+        a = await te.getIpo(ticker='SWIN', start_date='2023-09-01', end_date='2023-12-01');
+        b = await fetch('https://api.tradingeconomics.com/ipo/ticker/SWIN?c=&f=json&d1=2023-09-01&d2=2023-12-01');
+        c = await b.json();
+
+        expect(a).toEqual(c);
+    }, 60000);
+
+});
+
+
+

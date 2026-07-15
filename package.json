@@ -3,7 +3,9 @@
   "description": "Javascript library for Trading Economics API",
   "main": "./tradingeconomics/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --selectProjects unit --passWithNoTests",
+    "test:integration": "node runIntegration.js",
+    "test:all": "jest"
   },
   "author": "",
   "license": "ISC",
