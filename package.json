@@ -1,6 +1,26 @@
 {
   "name": "nodejs",
-  "description": "Javascript library for Trading Economics API",
+  "description": "Node.js client for the Trading Economics economic and financial data API. See https://docs.tradingeconomics.com for full documentation.",
+  "keywords": [
+    "trading-economics",
+    "economic-indicators",
+    "economic-calendar",
+    "macroeconomics",
+    "markets",
+    "financials",
+    "historical-data",
+    "forecasts",
+    "news",
+    "stocks",
+    "bonds",
+    "commodities",
+    "forex",
+    "earnings",
+    "credit-ratings",
+    "api-client",
+    "rest-api",
+    "sdk"
+  ],
   "main": "./tradingeconomics/index.js",
   "scripts": {
     "test": "jest --selectProjects unit --passWithNoTests",
